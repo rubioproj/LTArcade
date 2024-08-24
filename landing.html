@@ -1,0 +1,954 @@
+<script type="module">
+    import Chatbox from 'https://cdn.jsdelivr.net/npm/@chaindesk/embeds@latest/dist/chatbox/index.js';
+  
+    const widget = await Chatbox.initBubble({
+      agentId: 'clzsedxno03hdv1a5fra03nd9',
+      
+      // optional 
+      // If provided will create a contact for the user and link it to the conversation
+      contact: {
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'customer@email.com',
+        phoneNumber: '+33612345644',
+        userId: '42424242',
+      },
+      // optional
+      // Override initial messages
+      initialMessages: [
+        'Hello Georges how are you doing today?',
+        'How can I help you ?',
+      ],
+      // optional
+      // Provided context will be appended to the Agent system prompt
+      context: "The user you are talking to is John. Start by Greeting him by his name.",
+    });
+  
+    // open the chat bubble
+    widget.open();
+  
+    // close the chat bubble
+    widget.close()
+  
+    // or 
+    widget.toggle()
+  </script>
+
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Legal Tech Arcade</title>
+    <link rel="shortcut icon" type="x-icon" href="images/file.png">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+
+
+    <style>
+        @font-face {
+            font-family: Medium-font;
+            src: url(fonts/Poppins-Medium.ttf);
+        }
+
+        @font-face {
+            font-family: Regular-font;
+            src: url(fonts/Poppins-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: Title-font;
+            src: url(fonts/Poppins-ME.ttf);
+        }
+
+        .navbar-custom {
+            background-color: transparent;
+            transition: background-color 0.4s;
+        }
+
+        .navbar-custom.scrolled {
+            background-color: #700303e4;
+        }
+
+        .content-section {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 0;
+        }
+
+        .about-section{
+            background: linear-gradient(to bottom, rgb(253, 211, 0) 85%, rgba(208, 125, 249, 0) 100%);
+
+
+        }
+
+        .content-content {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .content-content h2 {
+            font-size: 48px;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .content-section video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .banner-section {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 0;
+        }
+
+        .banner-content {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .banner-content h2 {
+            font-size: 45px;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .banner-section video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(243,25,25, 0.5), rgba(243,25,25, 0) 70%);
+            z-index: 1;
+        }
+
+        .navbar-lower {
+            margin-bottom: 20px;
+        }
+
+        .navbar-upper,
+        .navbar-lower {
+            background-color: transparent;
+        }
+
+        .navbar-upper .container,
+        .navbar-lower .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-upper img {
+            height: 50px;
+        }
+
+        .navbar-lower .navbar-nav .nav-link {
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 11px;
+        }
+
+        .navbar-lower .contact-us-btn {
+            background-color: transparent;
+            border: solid 2px white;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            margin-left: 50px;
+        }
+
+        .navbar-lower .social-icons a {
+            color: #fff;
+            margin-left: 10px;
+        }
+
+        .navbar-lower .social-icons span {
+            color: #fff;
+            margin-left: 10px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107;
+        }
+
+        .contact-us-btn:hover {
+            background-color: #ffffff;
+            border-color: #ffffff;
+            color: black;
+        }
+
+        .inquire-now-btn {
+            margin-top: 20px;
+            background-color: transparent;
+            border-color: #ffffff;
+            color: rgb(255, 255, 255);
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .inquire-now-btn:hover {
+            background-color: #ffffff;
+            border-color: #ffffff;
+            color: black;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 18px;
+            margin-right: 20px;
+        }
+
+        .social-icons a i {
+            font-size: 20px;
+        }
+
+        .social-icons span i {
+            font-size: 20px;
+        }
+
+        .navbar-upper,
+        .navbar-lower {
+            margin-top: 20px;
+        }
+
+
+        span .logotitle {
+            font: 'Press Start 2P', cursive;
+        }
+
+        @media (max-width: 575.98px) {
+            .navbar-custom {
+                background-color: #001e3d;
+            }
+        }
+
+        .social-icons .fa-gear:hover {
+            color: rgb(236, 207, 74);
+        }
+
+        .social-icons .fa-cart-shopping:hover {
+            color: rgb(236, 207, 74);
+        }
+
+        .social-icons .fa-chart-simple:hover {
+            color: rgb(236, 207, 74);
+        }
+
+
+        .custom-shape-divider-bottom-1716038433 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .custom-shape-divider-bottom-1716038433 svg {
+            position: relative;
+            display: block;
+            width: calc(300% + 1.3px);
+            height: 76px;
+        }
+
+        .custom-shape-divider-bottom-1716038433 .shape-fill {
+            fill: rgb(253, 211, 0)
+        }
+
+
+
+        .logo-title{
+            font-family: 'Press Start 2P', cursive;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px
+        }
+
+        .about-section {
+            padding: 50px 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .about-section .left-part,
+        .about-section .right-part {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .about-section .left-part {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-section .right-part img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .about-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.5rem;
+            font-weight: bold;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .about-title::after {
+            content: '';
+            width: 70px;
+            height: 4px;
+            background: #007bff;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+        }
+
+        .about-content {
+            font-size: 14px;
+        }
+
+        p {
+            text-align: justify;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .malapascua-img {
+            border-radius: 8px;
+        }
+
+        .malapascua-img:hover {
+            border-radius: 8px;
+            transform: scale(1.02);
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .showbiztxt {
+            color: white;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .text-custom:hover {
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+
+        .t2d-img {
+            border-radius: 5px;
+        }
+
+        .t2d-img:hover {
+            filter: brightness(60%);
+            transition: filter 0.3s ease;
+        }
+
+        .gallery:hover {
+            filter: brightness(60%);
+            transition: filter 0.3s ease;
+        }
+
+        .custom-shape-divider-top-1716048623 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .custom-shape-divider-top-1716048623 svg {
+            position: relative;
+            display: block;
+            width: calc(300% + 1.3px);
+            height: 79px;
+        }
+
+        .custom-shape-divider-top-1716048623 .shape-fill {
+            fill: #FFFFFF
+        }
+
+        .fontdesign {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 30px;
+            font-weight: bold;
+            position: relative;
+            margin-bottom: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .fontdesign::before,
+        .fontdesign::after {
+            content: "";
+            flex: 1;
+            border-bottom: 3px solid #007bff;
+            margin: 0 10px;
+        }
+
+        .offers-txt {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 32px;
+            color: white;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .img-scale:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .readmore-btn:hover {
+            background-color: #000000;
+            border-color: #000000;
+            color: rgb(255, 255, 255);
+        }
+
+        .readmore-btn {
+            margin-top: 5px;
+            background-color: transparent;
+            border-color: #000000;
+            color: rgb(0, 0, 0);
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+        }
+
+        .scrollspy-container {
+            height: 400px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .gmaps-logo {
+            width: 310px;
+            height: 60px;
+        }
+
+        .fixed-bg-section {
+            background-image: url('images/fesd.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 100px 0;
+        }
+
+        .gallery-bg-section {
+            background-image: url('images/gallerybg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        body {
+            line-height: 1.5;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1170px;
+            margin: auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .footer {
+            background-color: #0e0497;
+            padding: 40px 0;
+        }
+
+        .footer-col {
+            width: 25%;
+            padding: 0 15px;
+        }
+
+        .footer-col h4 {
+            font-size: 15px;
+            font-family: 'Press Start 2P', cursive;
+            color: #ffffff;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .footer-col ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 11px;
+            font-family: 'Press Start 2P', cursive;
+            text-transform: capitalize;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            color: #bbbbbb;
+            display: block;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            padding-left: 8px;
+        }
+
+        .footer-col .social-links a {
+            padding-top: 10;
+
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+        }
+
+        .footer-col .social-links a:hover {
+            color: #24262b;
+            background-color: #ffffff;
+        }
+
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: auto;
+            padding: 20px 50px 40px 50px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, .30);
+            background: #ffffff;
+            visibility: hidden;
+            border-radius: 15px;
+            opacity: 0;
+            transition: 0.5s;
+            z-index: 10;
+            overflow: auto;
+            text-align: justify;
+        }
+
+        .popup a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .popup h1 {
+            margin-top: 10px;
+            font-size: 28px;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .popup.active {
+            top: 50%;
+            visibility: visible;
+            opacity: 1;
+            transition: 0.5s;
+            text-align: justify;
+        }
+
+        .popup.active h1 {
+            font-size: 24px;
+        }
+
+        .popup.active a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .popup .btn {
+            display: flex;
+            width: 100px;
+            height: 40px;
+            font-size: 15px;
+            font-weight: 300;
+            background: #bd7b2f;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+            outline: none;
+            cursor: pointer;
+            margin-top: 40px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body.blur-effect>*:not(.popup) {
+            filter: blur(4px);
+            pointer-events: none;
+            user-select: none;
+            transition: 0.5s ease-in-out;
+        }
+
+        #pagination a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #007bff;
+            cursor: pointer;
+        }
+        
+        #pagination a:hover {
+            text-decoration: underline;
+        }
+        
+        #pagination span {
+            margin: 0 5px;
+            color: #000;
+        }
+
+
+        @media (max-width: 767px) {
+            .footer-col {
+                width: 50%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 574px) {
+            .footer-col {
+                width: 100%;
+            }
+        }
+
+        .logo-title2{
+            font-family: 'Press Start 2P', cursive;
+            margin-top: 10px;
+            font-size: 20px;
+            letter-spacing: 2px;
+
+        }
+
+        @media (max-width: 900px) {
+            .md-none {
+            display: none;
+          }
+        }
+
+        .neon-text {
+    color: #fff;
+    text-shadow: 
+        0 0 3px #ff00ffad,
+        0 0 6px #ff00ffad,
+        0 0 12px #ff00ffad,
+        0 0 18px #ff00ffad,
+        0 0 24px #ff00ffad;
+    font-family: 'YourFontHere', sans-serif; /* Replace with your arcade-style font */
+    font-size: 3em;
+}
+
+
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <div class="row w-100">
+                <div class="col-12 d-flex justify-content-between align-items-center navbar-upper py-2">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="d-flex align-items-center">
+                        <img src="images/file.png" STYLE="width: 120px; height: 120px;">
+                        <span class="ms-2 text-white fs-4">
+                            <div class="logo-title">LEGAL TECH ARCADE</div>
+                        </span>
+                    </div>
+                        
+                    </div>
+
+                <div class="col-12 navbar-lower">
+                    <div class="container">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="landing.html" style="color: #ffc107;">Home</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="about%20.html">Meet Our Team</a>
+                                    </li>
+                                    <ul class="dropdown-menu">
+         
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contect.html">Contact Us</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="gallery.html">Gallery</a>
+                                </li>
+                            </ul>
+                            <div class="d-flex align-items-center">
+                                <div class="social-icons">
+                                    <span class="me-2" id="chart-button"><span onclick="toggle('tc')"><i class="fa-solid fa-chart-simple"></i></span></span>
+                                    <a href="order_info.php"><i class="fa-solid fa-cart-shopping"></i></a>
+                                    <a href="UserSettings.php"><i class="fa-solid fa-gear"></i></a>
+                                </div>
+                                <a href="login.php?logout=true" class="btn contact-us-btn " type="button"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="banner-section">
+        <video autoplay muted loop>
+            <source src="videos/arcade vj loop.mp4" type="video/mp4">
+        </video>
+        <div class="banner-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="banner-content text-center">
+                        <h2 class="neon-text"><br><br>Play. Relive. Repeat. Step Into the Ultimate Arcade Experience</h2>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="custom-shape-divider-bottom-1716038433">
+                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="images/yellow.png" class="img-fluid malapascua-img">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="about-title position-relative">About LT Arcade</h2>
+                    <p class="about-content text-justify">
+                        <br>Welcome to Lecal Tech Arcade, where the spirit of classic gaming is alive and thriving. Step into a world where pixelated heroes, vibrant neon lights, and iconic soundtracks create an atmosphere of pure nostalgia. Our arcade is more than just a place to play—it's a destination for those who cherish the golden age of gaming, where every visit is a journey back to the era of high scores and endless fun.
+                        <br><br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="popular-section my-5" id="things-to-do">
+        <div class="container">
+            <h2 class="mb-4 about-title">Things to do</h2>
+            <div class="row">
+
+                <div class="col-md-3 mb-3">
+                    <div class="position-relative">
+                        <img src="images/buy.png" class="img-fluid t2d-img">
+                        <span class="badge bg-primary position-absolute top-0 start-0 mt-2 ms-2" style="font-size: 0.75rem;">LT - Buy</span>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="position-relative">
+                        <img src="images/museum.jpg" class="img-fluid t2d-img">
+                        <span class="badge bg-success bg-gradient position-absolute top-0 start-0 mt-2 ms-2" style="font-size: 0.75rem;">LT - Arcade Museum</span>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="position-relative">
+                        <img src="images/sell.avif" class="img-fluid t2d-img">
+                        <span class="badge bg-danger position-absolute top-0 start-0 mt-2 ms-2" style="font-size: 0.75rem;">LT - Sell</span>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="position-relative">
+                        <img src="images/play.jpg" class="img-fluid t2d-img">
+                        <span class="badge bg-primary position-absolute top-0 start-0 mt-2 ms-2" style="font-size: 0.75rem;">LT - Ready & Play</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid py-5 fixed-bg-section" id="best-time">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="mb-3" style="font-family: 'Press Start 2P', cursive; font-size: 1.3rem;">Best Time to Visit Legal Tech Arcade</h4>
+                    <p style="text-align: justify; font-family: 'Press Start 2P', cursive; font-size: 0.7rem;">Our arcade is buzzing with excitement all year round!</p>
+                    <p style="text-align: justify; font-family: 'Press Start 2P', cursive; font-size: 0.7rem;">High traffic times (weekends and holidays) bring a vibrant energy, but also more players and sometimes a bit of a wait. For a more relaxed experience, consider visiting during weekdays or off-peak hours.</p>
+                    <hr>
+                    <h4 class="mt-4 mb-3" style="font-family: 'Press Start 2P', cursive; font-size: 1.3rem;">Buy, Sell, and Trade at Legal Tech Arcade</h4>
+                    <p style="text-align: justify; font-size: 0.7rem;">Legal Tech Arcade isn’t just a place to play—it’s where collectors and enthusiasts come to buy, sell, and trade!</p>
+                    <p style="text-align: justify; font-size: 0.7rem;">Legal Tech Arcade is your hub for buying, selling, and trading arcade games and memorabilia. Whether expanding your collection or parting with treasures, connect with fellow enthusiasts and explore our marketplace.</p>
+                    <hr>
+                    <h4 class="mt-4 mb-3" style="font-family: 'Press Start 2P', cursive; font-size: 1.3rem;">Gaming Safety</h4>
+                    <p style="text-align: justify; font-size: 0.7rem;">At Legal Tech Arcade, your safety is our top priority.</p>
+                    <p style="text-align: justify; font-size: 0.7rem;">We ensure that our environment is not only fun but also safe for all our visitors. Our team is dedicated to maintaining a clean, well-regulated space where you can focus on enjoying the games.</p>
+                </div>
+                
+                <div class="col-md-6">
+                    <br><br><br><br>
+                    <h4 class="mb-3" style="font-family: 'Press Start 2P', cursive; font-size: 1.2rem;">PACMAN | Highest-Grossing Arcade Games of All Time</h4>
+                    <div class="ratio ratio-16x9">
+                        <video autoplay muted loop>
+                            <source src="videos/pacman.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <br>
+                    <p style="font-size: 0.7rem;">Gaming's first major mascot, and perhaps its most recognizable and enduring character, Pac-Man burst onto the scenes in 1980 and became an overnight sensation. – LEARN MORE <a href="https://www.vg247.com/top-10-highest-grossing-arcade-games-of-all-time" style="color: rgb(0, 20, 202); text-decoration: underline;">HERE</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>&nbsp;&nbsp;company</h4>
+                    <a class="navbar-brand" href="#">
+                        <img src="images/file.png" alt="CNN Logo" width="160" />
+                    </a>
+                </div>
+                <div class="footer-col">
+                    <h4>&nbsp;&nbsp;About LT Arcade</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Sponsors</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>&nbsp;&nbsp;Navigation</h4>
+                    <ul>
+                        <li><a href="aboutus.php">About Us</a></li>
+                        <li><a href="diving_services.php">LTA Services</a></li>
+                        <li><a href="Reviews.php">Reviews</a></li>
+                        <li><a href="contacts.php">Contact Us</a></li>
+                        <li><a href="Gallery.php">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>&nbsp;follow us</h4>
+                    <div class="social-links">
+                        &nbsp; &nbsp; <a href="https://www.facebook.com/MTDpurelocal"><i class="fab fa-facebook-f"></i></a>
+                        <br>
+                        &nbsp; &nbsp; <a href="https://www.instagram.com/mtddiveshop/"><i class="fab fa-instagram"></i></a>
+                        <br>
+                        &nbsp; &nbsp; <a href="https://www.youtube.com/@jestondayday63"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var navbar = document.querySelector('.navbar-custom');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        function toggle(popupID) {
+            var popup = document.getElementById(popupID);
+            popup.classList.toggle("active");
+            if (popup.classList.contains('active')) {
+                document.body.classList.add('blur-effect');
+            } else {
+                document.body.classList.remove('blur-effect');
+            }
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var aboutUsDropdown = document.getElementById('about-us-dropdown');
+            var dropdownMenu = aboutUsDropdown.nextElementSibling;
+
+            aboutUsDropdown.addEventListener('click', function(event) {
+                var isDropdownShown = dropdownMenu.classList.contains('show');
+                if (!isDropdownShown) {
+                    event.preventDefault();
+                    dropdownMenu.classList.add('show'); 
+                }
+
+                window.location.href = 'aboutus.php';
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!aboutUsDropdown.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>
+</body>
+
+</html>
